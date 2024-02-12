@@ -1,6 +1,15 @@
+"use client";
 import { notFound } from "next/navigation";
 
+const getRandomInt = (count) => {
+  Math.floor(Math.random() * count);
+};
+
 const ReviewPage = ({ params }) => {
+  const random = getRandomInt(2);
+  if (random === 1) {
+    throw new Error("Error loading review");
+  }
   if (parseInt(params.reviewId > 1000)) {
     notFound();
   }
